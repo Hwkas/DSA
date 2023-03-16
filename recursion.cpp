@@ -51,14 +51,12 @@ inline int fibonacci(int n)
 
 inline void get_array_values(int arr[], int n)
 {
-
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
 inline void print_array(int arr[], int n)
 {
-
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
 }
