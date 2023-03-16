@@ -1,6 +1,6 @@
 # # Q1 Reversing an array.
 
-# arr = [1, 2, 3, 4, 5, 6]
+arr = [1, 2, 3, 4, 5, 6]
 
 # swap = 0
 # for i in range(len(arr) // 2):
@@ -13,14 +13,14 @@
 
 # # Q2 Swaping with adjacent element in an array.
 
-# swap = 0
-# for i in range(0, len(arr), 2):
-#     if (i + 1) < len(arr):
-#         swap = arr[i]
-#         arr[i] = arr[i + 1]
-#         arr[i + 1] = swap
+swap = 0
+for i in range(0, len(arr), 2):
+    if (i + 1) < len(arr):
+        swap = arr[i]
+        arr[i] = arr[i + 1]
+        arr[i + 1] = swap
 
-# print(arr)
+print(arr)
 
 
 # # Q3 Find unique element in an array.
