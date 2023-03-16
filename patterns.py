@@ -4,7 +4,7 @@ n = int(input("Enter a number to print the patter:  "))
 # Q1
 # for i in range(n):
 #     for j in range(n):
-#         print(n-j, end="")
+#         print(n - j, end="")
 #     print()
 
 
@@ -19,32 +19,32 @@ n = int(input("Enter a number to print the patter:  "))
 
 # Q3
 # for i in range(n):
-#     for j in range(i+1):
+#     for j in range(i + 1):
 #         print("*", end="")
 #     print()
 
 
 # Q4
 # for i in range(n):
-#     for j in range(i+1):
-#         print(i+1, end="")
+#     for j in range(i + 1):
+#         print(i + 1, end="")
 #     print()
 
 
 # Q5
 # count = 0
 # for i in range(n):
-#     for j in range(i+1):
+#     for j in range(i + 1):
 #         count += 1
 #         print(count, end="")
 #     print()
 
 # Q6
-# count = 1 
+# count = 1
 # Sol1
 # reset_value = 0
 # for i in range(n):
-#     for j in range(i+1):
+#     for j in range(i + 1):
 #         if j == 1:
 #             reset_value = count
 #         print(count, end="")
@@ -54,8 +54,8 @@ n = int(input("Enter a number to print the patter:  "))
 #     print()
 # Sol2
 # for i in range(n):
-#     for j in range(i+1):
-#         count = i+j+1
+#     for j in range(i + 1):
+#         count = i + j + 1
 #         print(count, end="")
 #     print()
 
@@ -63,8 +63,8 @@ n = int(input("Enter a number to print the patter:  "))
 # Q7
 # count = 0
 # for i in range(n):
-#     for j in range(i+1):
-#         count = i-j+1
+#     for j in range(i + 1):
+#         count = i - j + 1
 #         print(count, end="")
 #     print()
 
@@ -100,15 +100,15 @@ n = int(input("Enter a number to print the patter:  "))
 # letter = "A"
 # for i in range(n):
 #     for j in range(n):
-#         print(chr(ord(letter) +i+j), end="")
+#         print(chr(ord(letter) + i + j), end="")
 #     print()
 
 
 # Q12
 # letter = "A"
 # for i in range(n):
-#     for j in range(i+1):
-#         print(chr(ord(letter)+i), end="")
+#     for j in range(i + 1):
+#         print(chr(ord(letter) + i), end="")
 #     print()
 
 
@@ -116,8 +116,8 @@ n = int(input("Enter a number to print the patter:  "))
 # letter = "A"
 # count = 0
 # for i in range(n):
-#     for j in range(i+1):
-#         print(chr(ord(letter)+count), end="")
+#     for j in range(i + 1):
+#         print(chr(ord(letter) + count), end="")
 #         count += 1
 #     print()
 
@@ -125,8 +125,8 @@ n = int(input("Enter a number to print the patter:  "))
 # Q14
 # letter = "A"
 # for i in range(n):
-#     for j in range(i+1):
-#         print(chr(ord(letter)+n-i+j-1), end="")
+#     for j in range(i + 1):
+#         print(chr(ord(letter) + n - i + j - 1), end="")
 #     print()
 
 
@@ -134,14 +134,14 @@ n = int(input("Enter a number to print the patter:  "))
 # letter = "A"
 # for i in range(n):
 #     for j in range(n):
-#         print(chr(ord(letter)+i+j), end="")
+#         print(chr(ord(letter) + i + j), end="")
 #     print()
 
 
 # Q16
 # for i in range(n):
 #     for j in range(n):
-#         if j >= n-i-1:
+#         if j >= n - i - 1:
 #             print("*", end="")
 #         else:
 #             print(" ", end="")
@@ -150,7 +150,7 @@ n = int(input("Enter a number to print the patter:  "))
 
 # Q17
 # for i in range(n):
-#     for j in range(n-i):
+#     for j in range(n - i):
 #         print("*", end="")
 #     print()
 
@@ -158,7 +158,7 @@ n = int(input("Enter a number to print the patter:  "))
 # Q18
 # for i in range(n):
 #     for j in range(n):
-#         if j>=i:
+#         if j >= i:
 #             print("*", end="")
 #         else:
 #             print(" ", end="")
@@ -168,8 +168,8 @@ n = int(input("Enter a number to print the patter:  "))
 # Q19
 # for i in range(n):
 #     for j in range(n):
-#         if j>=i:
-#             print(i+1, end="")
+#         if j >= i:
+#             print(i + 1, end="")
 #         else:
 #             print(" ", end="")
 #     print()
@@ -178,8 +178,8 @@ n = int(input("Enter a number to print the patter:  "))
 # Q20
 # for i in range(n):
 #     for j in range(n):
-#         if j>=n-i-1:
-#             print(i+1, end="")
+#         if j >= n - i - 1:
+#             print(i + 1, end="")
 #         else:
 #             print(" ", end="")
 #     print()
@@ -188,10 +188,10 @@ n = int(input("Enter a number to print the patter:  "))
 # Q21
 # for i in range(n):
 #     for j in range(n):
-#         if j<i:
+#         if j < i:
 #             print(" ", end="")
 #         else:
-#             print(j+1, end="")
+#             print(j + 1, end="")
 #     print()
 
 
@@ -199,8 +199,8 @@ n = int(input("Enter a number to print the patter:  "))
 # count = 0
 # for i in range(n):
 #     for j in range(n):
-#         if j>=n-i-1:
-#             count +=1
+#         if j >= n - i - 1:
+#             count += 1
 #             print(count, end="")
 #         else:
 #             print(" ", end="")
@@ -210,11 +210,11 @@ n = int(input("Enter a number to print the patter:  "))
 # Q23
 # for i in range(n):
 #     count = 0
-#     for j in range(n+i):
-#         if j >=n-i-1 and j<n:
+#     for j in range(n + i):
+#         if j >= n - i - 1 and j < n:
 #             count += 1
 #             print(count, end="")
-#         elif j>=n-i-1 and j>=n:
+#         elif j >= n - i - 1 and j >= n:
 #             count -= 1
 #             print(count, end="")
 #         else:
@@ -224,11 +224,11 @@ n = int(input("Enter a number to print the patter:  "))
 
 # Q24
 for i in range(n):
-    for j in range(n*2):
-        if j<n-i:
-            print(j+1, end="")
-        elif j>=n+i:
-            print((n*2)-j, end="")
+    for j in range(n * 2):
+        if j < n - i:
+            print(j + 1, end="")
+        elif j >= n + i:
+            print((n * 2) - j, end="")
         else:
             print("*", end="")
     print()
