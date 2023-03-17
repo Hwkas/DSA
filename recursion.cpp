@@ -37,6 +37,15 @@ using namespace std;
 //     }
 // }
 
+// bool is_array_sorted(int arr[], int index, int size)
+// {
+//     if (index == size - 1)
+//     {
+//         return true;
+//     }
+//     return (arr[index] <= arr[index + 1]) & is_array_sorted(arr, index + 1, size);
+// }
+
 /*************************************** InLine Functions *******************************/
 
 inline int factorial(int n)
@@ -61,6 +70,11 @@ inline void print_array(int arr[], int n)
         cout << arr[i] << " ";
 }
 
+inline bool is_array_sorted(int arr[], int index, int size)
+{
+    return (index == size - 1) ? true : ((arr[index] <= arr[index + 1]) & is_array_sorted(arr, index + 1, size));
+}
+
 int main()
 {
 
@@ -79,6 +93,8 @@ int main()
     int *arr = new int[n];
 
     get_array_values(arr, n);
+
+    is_array_sorted(arr, 0, n) ? cout << "True" << endl : cout << "False" << endl;
 
     print_array(arr, n);
 
