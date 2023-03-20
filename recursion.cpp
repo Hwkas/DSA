@@ -46,16 +46,25 @@ using namespace std;
 //     return (arr[index] <= arr[index + 1]) & is_array_sorted(arr, index + 1, size);
 // }
 
+// int array_sum(int arr[], int size)
+// {
+//     if (size == 0)
+//     {
+//         return arr[0];
+//     }
+//     return arr[0] + array_sum(arr + 1, size - 1);
+// }
+
 /*************************************** InLine Functions *******************************/
 
 inline int factorial(int n)
 {
-    return n == 0 ? 1 : n * factorial(n - 1);
+    return n == 0 ? 1 : (n * factorial(n - 1));
 }
 
 inline int fibonacci(int n)
 {
-    return (n == 0 || n == 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);
+    return (n == 0 || n == 1) ? n : (fibonacci(n - 1) + fibonacci(n - 2));
 }
 
 inline void get_array_values(int arr[], int n)
@@ -73,6 +82,12 @@ inline void print_array(int arr[], int n)
 inline bool is_array_sorted(int arr[], int index, int size)
 {
     return (index == size - 1) ? true : ((arr[index] <= arr[index + 1]) & is_array_sorted(arr, index + 1, size));
+}
+
+inline int array_sum(int arr[], int size)
+{
+    cout << "Array element: " << arr[0] << " Size: " << size << endl;
+    return (size == 1) ? arr[0] : (arr[0] + array_sum(arr + 1, size - 1));
 }
 
 int main()
@@ -94,7 +109,9 @@ int main()
 
     get_array_values(arr, n);
 
-    is_array_sorted(arr, 0, n) ? cout << "True" << endl : cout << "False" << endl;
+    cout << "The Sum of Array is: " << array_sum(arr, n) << endl;
+
+    // is_array_sorted(arr, 0, n) ? cout << "True" << endl : cout << "False" << endl;
 
     print_array(arr, n);
 
