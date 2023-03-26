@@ -7,7 +7,6 @@ using namespace std;
 
 bool is_possible(int arr[], int n, int m, int sum, int temp = 0)
 {
-
     // int i;
     // if (m == 0)
     // {
@@ -43,6 +42,11 @@ bool is_possible(int arr[], int n, int m, int sum, int temp = 0)
     else
     {
         temp = 0;
+        if ((temp + arr[m - 1]) <= sum)
+        {
+            temp += arr[m - 1];
+            m--;
+        }
         n--;
         if (n == 0)
         {
