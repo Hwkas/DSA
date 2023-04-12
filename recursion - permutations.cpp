@@ -74,7 +74,6 @@ int main()
 //     int n = str.size();
 
 //     vector<string> ans;
-//     string output;
 //     int index = 0;
 
 //     permutation(str, n, index, ans);
