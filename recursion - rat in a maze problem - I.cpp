@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-bool valid_move(int m[7][7], int n, int x, int y)
+bool valid_move(vector<vector<int> > &m, int n, int x, int y)
 {
-    if ((m[x][y] == 1) && (x > -1) && (y > -1) && (x < n) && (y < n))
+    if ((x > -1) && (y > -1) && (x < n) && (y < n) && (m[x][y] == 1))
     {
         return true;
     }
     return false;
 }
 
-void path(int m[7][7], int n, int x, int y, vector<string> &ans, string output)
+void path(vector<vector<int> > &m, int n, int x, int y, vector<string> &ans, string output)
 {
     if (x == n - 1 && y == n - 1)
     {
@@ -59,13 +59,42 @@ inline void print_array(vector<string> &ans, int n)
 
 int main()
 {
-    // int m[4][4] = {{1, 0, 0, 0}, {1, 1, 0, 1}, {1, 1, 0, 0}, {0, 1, 1, 1}};
-    int m[7][7] = {{1, 0, 1, 0, 0, 1, 0}, {1, 0, 1, 1, 0, 0, 0}, {1, 0, 0, 0, 1, 0, 1}, {1, 0, 1, 0, 0, 0, 0}, {1, 0, 1, 1, 0, 1, 0}, {1, 0, 0, 0, 0, 1, 0}, {1, 1, 1, 1, 1, 1, 1}};
+    /*
+        Inputs
+        4
+        1 0 0 0
+        1 1 0 1 
+        1 1 0 0 
+        0 1 1 1
+
+        7
+        1 0 1 0 0 1 0 
+        1 0 1 1 0 0 0 
+        1 0 0 0 1 0 1 
+        1 0 1 0 0 0 0 
+        1 0 1 1 0 1 0 
+        1 1 0 0 0 1 0 
+        1 1 1 1 1 1 1
+
+    */
+
+    cout << "Enter the size Maze: ";
+    int n;
+    cin >> n;
+    vector<vector<int> > m(n, vector<int>(n, 0));
+    cout << "Enter the element of the Maze" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> m[i][j];
+        }
+    }
 
     vector<string> ans;
     string output;
 
-    path(m, 7, 0, 0, ans, output);
+    path(m, n, 0, 0, ans, output);
 
     print_array(ans, ans.size());
 
