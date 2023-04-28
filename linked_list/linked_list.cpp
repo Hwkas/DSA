@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 class Node
@@ -41,6 +42,10 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
     for (int i = 0; i < index - 1; i++)
     {
         temp = temp->next;
+        if (temp == NULL)
+        {
+            throw out_of_range("Index out of range");
+        }
     }
 
     if (temp->next == NULL)
