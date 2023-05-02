@@ -53,17 +53,29 @@ int get_lenght(Node *&head)
     return length;
 }
 
-void insert_at_head(Node *&head, int data)
+void insert_at_head(Node *&head, Node *&tail, int data)
 {
     Node *node_to_insert = new Node(data);
+    if (head == NULL)
+    {
+        head = node_to_insert;
+        tail = node_to_insert;
+        return;
+    }
     node_to_insert->next = head;
     head->previous = node_to_insert;
     head = node_to_insert;
 }
 
-void insert_at_tail(Node *&tail, int data)
+void insert_at_tail(Node *&head, Node *&tail, int data)
 {
     Node *node_to_insert = new Node(data);
+    if (tail == NULL)
+    {
+        head = node_to_insert;
+        tail = node_to_insert;
+        return;
+    }
     node_to_insert->previous = tail;
     tail->next = node_to_insert;
     tail = node_to_insert;
@@ -74,7 +86,7 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
 
     if (index == 0)
     {
-        insert_at_head(head, data);
+        insert_at_head(head, tail, data);
         return;
     }
 
@@ -91,7 +103,7 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
 
     if (temp->next == NULL)
     {
-        insert_at_tail(tail, data);
+        insert_at_tail(head, tail, data);
         return;
     }
 
@@ -99,35 +111,38 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
 
     node_to_insert->next = temp->next;
     node_to_insert->previous = temp;
+    temp->next->previous = node_to_insert;
     temp->next = node_to_insert;
-    node_to_insert->next->previous = node_to_insert;
 }
 
 int main()
 {
     // we can simply just name the node1 as head & the programm will still work as same.
-    Node *node1 = new Node(10);
+    // Node *node1 = new Node(10);
 
-    Node *head = node1;
-    Node *tail = node1;
+    // Node *head = node1;
+    // Node *tail = node1;
 
-    insert_at_head(head, 20);
-    insert_at_head(head, 30);
-    insert_at_head(head, 40);
-    insert_at_head(head, 50);
+    Node *head = NULL;
+    Node *tail = NULL;
+
+    insert_at_head(head, tail, 20);
+    insert_at_head(head, tail, 30);
+    insert_at_head(head, tail, 40);
+    insert_at_head(head, tail, 50);
 
     insert_at_position(head, tail, 0, 0);
-    insert_at_position(head, tail, 1, 3);
-    insert_at_position(head, tail, 2, 5);
+    // insert_at_position(head, tail, 1, 3);
+    // insert_at_position(head, tail, 2, 5);
 
-    insert_at_tail(tail, 60);
-    insert_at_tail(tail, 70);
-    insert_at_tail(tail, 80);
-    insert_at_tail(tail, 90);
-    insert_at_tail(tail, 100);
+    insert_at_tail(head, tail, 60);
+    insert_at_tail(head, tail, 70);
+    insert_at_tail(head, tail, 80);
+    insert_at_tail(head, tail, 90);
+    insert_at_tail(head, tail, 100);
 
     insert_at_position(head, tail, 3, 9);
-    insert_at_position(head, tail, 4, 14);
+    // insert_at_position(head, tail, 4, 14);
 
     print_from_head(head);
     print_from_tail(tail);
