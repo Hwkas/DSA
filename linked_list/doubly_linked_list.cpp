@@ -15,6 +15,15 @@ public:
         this->data = data;
         this->next = NULL;
     }
+
+    ~Node()
+    {
+        if (this->next != NULL)
+        {
+            delete next;
+            this->next = NULL;
+        }
+    }
 };
 
 void print_from_head(Node *&head)
@@ -115,6 +124,43 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
     temp->next = node_to_insert;
 }
 
+void delete_at_position(Node *&head, Node *&tail, int index)
+{
+    Node *temp = head;
+
+    if (index == 0)
+    {
+        head = temp->next;
+        head->previous = NULL;
+        temp->next = NULL;
+        delete temp;
+        return;
+    }
+
+    for (int i = 0; i < index - 1; i++)
+    {
+        temp = temp->next;
+        if (temp->next == NULL)
+        {
+            throw out_of_range("Index out of range");
+        }
+    }
+
+    Node *node_to_delete = temp->next;
+    temp->next = node_to_delete->next;
+    if (temp->next == NULL)
+    {
+        tail = temp;
+    }
+    else
+    {
+        node_to_delete->next->previous = temp;
+    }
+    node_to_delete->next = NULL;
+    node_to_delete->previous = NULL;
+    delete node_to_delete;
+}
+
 int main()
 {
     // we can simply just name the node1 as head & the programm will still work as same.
@@ -146,6 +192,14 @@ int main()
 
     print_from_head(head);
     print_from_tail(tail);
+
+    cout << get_lenght(head) << endl;
+
+    delete_at_position(head, tail, 10);
+
+    print_from_head(head);
+    print_from_tail(tail);
+
     cout << get_lenght(head) << endl;
 
     return 0;

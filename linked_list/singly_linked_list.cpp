@@ -16,16 +16,10 @@ public:
 
     ~Node()
     {
-        /*
-            Here we need to write the below code because
-            - the default destructor will not delete the pointer inside a pointer as
-            the all the nodes a dynamically create and each node has pointer inside a pointer.
-            - we  need to set the next to null other-wise the delete will recursively delete all the nodes.
-        */
         if (this->next != NULL)
         {
-            this->next = NULL;
             delete next;
+            this->next = NULL;
         }
     }
 };
@@ -93,6 +87,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     if (index == 0)
     {
         head = head->next;
+        temp->next = NULL;
         delete temp;
         return;
     }
@@ -113,7 +108,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     {
         tail = temp;
     }
-
+    node_to_delete->next = NULL;
     delete node_to_delete;
 }
 
@@ -158,11 +153,6 @@ int main()
     delete_at_position(head, tail, 4);
 
     print(head);
-
-    while (head != NULL)
-    {
-        delete_at_position(head, tail, 0);
-    }
 
     return 0;
 }
