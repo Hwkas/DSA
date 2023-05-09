@@ -16,30 +16,36 @@ public:
 
     ~Node()
     {
-        /*
-            Here we need to write the below code because
-            - the default destructor will not delete the pointer inside a pointer as
-            the all the nodes a dynamically create and each node has pointer inside a pointer.
-            - we  need to set the next to null other-wise the delete will recursively delete all the nodes.
-        */
         if (this->next != NULL)
         {
-            this->next = NULL;
             delete next;
+            this->next = NULL;
         }
     }
 };
 
-void insert_at_head(Node *&head, int data)
+void insert_at_head(Node *&head, Node *&tail, int data)
 {
     Node *temp = new Node(data);
+    if (head == NULL)
+    {
+        head = temp;
+        tail = temp;
+        return;
+    }
     temp->next = head;
     head = temp;
 }
 
-void insert_at_tail(Node *&tail, int data)
+void insert_at_tail(Node *&head, Node *&tail, int data)
 {
     Node *temp = new Node(data);
+    if (tail == NULL)
+    {
+        head = temp;
+        tail = temp;
+        return;
+    }
     tail->next = temp;
     tail = temp;
 }
@@ -48,7 +54,7 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
 {
     if (index == 0)
     {
-        insert_at_head(head, data);
+        insert_at_head(head, tail, data);
         return;
     }
 
@@ -66,7 +72,7 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
 
     if (temp->next == NULL)
     {
-        insert_at_tail(tail, data);
+        insert_at_tail(head, tail, data);
         return;
     }
     Node *node_to_insert = new Node(data);
@@ -81,6 +87,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     if (index == 0)
     {
         head = head->next;
+        temp->next = NULL;
         delete temp;
         return;
     }
@@ -101,7 +108,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     {
         tail = temp;
     }
-
+    node_to_delete->next = NULL;
     delete node_to_delete;
 }
 
@@ -120,30 +127,32 @@ void print(Node *&head)
 
 int main()
 {
-    Node *node1 = new Node(123);
+    // Node *node1 = new Node(123);
 
-    Node *head = node1;
-    Node *tail = node1;
+    // Node *head = node1;
+    // Node *tail = node1;
 
-    insert_at_tail(tail, 345);
-    insert_at_tail(tail, 678);
+    Node *head = NULL;
+    Node *tail = NULL;
 
-    insert_at_position(head, tail, 908, 3);
+    insert_at_tail(head, tail, 345);
+    // print(head);
+    insert_at_tail(head, tail, 678);
+    // print(head);
 
-    insert_at_tail(tail, 456);
+    // insert_at_position(head, tail, 908, 3);
+    insert_at_position(head, tail, 908, 2);
 
-    insert_at_head(head, 0);
+    insert_at_tail(head, tail, 456);
+
+    insert_at_head(head, tail, 0);
 
     print(head);
 
-    delete_at_position(head, tail, 5);
+    // delete_at_position(head, tail, 5);
+    delete_at_position(head, tail, 4);
 
     print(head);
-
-    while (head != NULL)
-    {
-        delete_at_position(head, tail, 0);
-    }
 
     return 0;
 }
