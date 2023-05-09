@@ -40,6 +40,11 @@ void insert_node(Node *&tail, int element, int data)
     while (temp->data != element)
     {
         temp = temp->next;
+
+        if (temp == tail)
+        {
+            throw runtime_error("element does not exists - can't insert");
+        }
     }
 
     node_to_insert->next = temp->next;
@@ -63,7 +68,7 @@ void print(Node *&tail)
     cout << endl;
 }
 
-void delete_by_element(Node *&tail, int element)
+void delete_node(Node *&tail, int element)
 {
     if (tail == NULL)
     {
@@ -74,6 +79,11 @@ void delete_by_element(Node *&tail, int element)
     while (temp->next->data != element)
     {
         temp = temp->next;
+
+        if (temp == tail)
+        {
+            throw runtime_error("element does not exists - can't delete");
+        }
     }
 
     Node *node_to_delete = temp->next;
@@ -101,16 +111,20 @@ int main()
     Node *tail = NULL;
 
     insert_node(tail, 10, 20);
-    // insert_node(tail, 20, 40);
-    // insert_node(tail, 20, 60);
-    // insert_node(tail, 20, 30);
-    // insert_node(tail, 40, 50);
+    insert_node(tail, 20, 40);
+    insert_node(tail, 20, 60);
+    insert_node(tail, 20, 30);
+    insert_node(tail, 40, 50);
 
     print(tail);
 
-    delete_by_element(tail, 20);
+    delete_node(tail, 20);
 
     print(tail);
+
+    insert_node(tail, 11, 21);
+
+    delete_node(tail, 51);
 
     return 0;
 }
