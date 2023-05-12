@@ -87,19 +87,32 @@ void print(Node *&head)
 // }
 
 // recusrive function for reversing a linked list
-void reverse_node(Node *&head)
+// void reverse_node(Node *&head)
+// {
+//     if (head == NULL || head->next == NULL)
+//     {
+//         return;
+//     }
+
+//     Node *rest = head->next;
+//     reverse_node(rest);
+//     head->next->next = head;
+//     head->next = NULL;
+
+//     head = rest;
+// }
+
+// Optimised - recusrive function for reversing a linked list
+void reverse_node(Node *&head, Node *curr, Node *prev = NULL)
 {
-    if (head == NULL || head->next == NULL)
+    if (curr == NULL)
     {
+        head = prev;
         return;
     }
 
-    Node *rest = head->next;
-    reverse_node(rest);
-    head->next->next = head;
-    head->next = NULL;
-
-    head = rest;
+    reverse_node(head, curr->next, curr);
+    curr->next = prev;
 }
 
 int main()
@@ -114,7 +127,8 @@ int main()
 
     print(head);
 
-    reverse_node(head);
+    // reverse_node(head);
+    reverse_node(head, head);
 
     print(head);
 
