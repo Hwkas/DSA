@@ -72,15 +72,15 @@ void print(Node *&head)
 //         return;
 //     }
 //     Node *curr = head;
-//     Node *next_node = NULL;
+//     Node *forward = NULL;
 //     Node *prev = NULL;
 
 //     while (curr != NULL)
 //     {
-//         next_node = curr->next;
+//         forward = curr->next;
 //         curr->next = prev;
 //         prev = curr;
-//         curr = next_node;
+//         curr = forward;
 //     }
 
 //     head = prev;
