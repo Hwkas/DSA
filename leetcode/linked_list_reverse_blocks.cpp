@@ -50,36 +50,94 @@ void print(Node *&head)
     cout << endl;
 }
 
-void reverse_blocks(int start, int itter_count, Node *&head, Node *curr, Node *prev = NULL, Node *forward = NULL)
+// void reverse_blocks(int start, int itter_count, Node *&head, Node *curr, Node *prev = NULL, Node *forward = NULL)
+// {
+
+//     for (int i = 0; i < start; i++)
+//     {
+//         prev = curr;
+//         curr = curr->next;
+//     }
+
+//     Node *initial_curr = curr;
+//     Node *initial_prev = prev;
+
+//     for (int i = 0; i < itter_count; i++)
+//     {
+//         forward = curr->next;
+//         curr->next = prev;
+//         prev = curr;
+//         curr = forward;
+//     }
+
+//     if (initial_curr == head)
+//     {
+//         head->next = curr;
+//         head = prev;
+//     }
+//     else
+//     {
+//         initial_prev->next = prev;
+//         initial_curr->next = curr;
+//     }
+// }
+
+Node *reverser_blocks(Node *head, int n, int arr[])
 {
+    int start = 0;
 
-    for (int i = 0; i < start; i++)
+    for (int i = 0; i < n; i++)
     {
-        prev = curr;
-        curr = curr->next;
-    }
+        Node *curr = head;
+        Node *prev = NULL;
+        Node *forward = NULL;
 
-    Node *initial_curr = curr;
-    Node *initial_prev = prev;
+        for (int j = 0; j < start; j++)
+        {
+            prev = curr;
+            curr = curr->next;
+        }
 
-    for (int i = 0; i < itter_count; i++)
-    {
-        forward = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = forward;
-    }
+        Node *initial_curr = curr;
+        Node *initial_prev = prev;
 
-    if (initial_curr == head)
-    {
-        head->next = curr;
-        head = prev;
+        if (arr[i] > 1)
+        {
+            for (int j = 0; j < arr[i]; j++)
+            {
+                if (curr == NULL)
+                {
+                    if (j == 1 && start == 0)
+                    {
+                        return head;
+                    }
+                    break;
+                }
+                forward = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = forward;
+            }
+
+            if (initial_curr == head)
+            {
+                head->next = curr;
+                head = prev;
+            }
+            else
+            {
+                initial_prev->next = prev;
+                initial_curr->next = curr;
+            }
+        }
+
+        if (curr == NULL)
+        {
+            break;
+        }
+        start += arr[i];
     }
-    else
-    {
-        initial_prev->next = prev;
-        initial_curr->next = curr;
-    }
+    return head;
 }
 
 int main()
@@ -94,13 +152,9 @@ int main()
 
     print(head);
 
-    int arr[] = {2, 3};
-    int start = 0;
-    for (int i = 0; i < 2; i++)
-    {
-        reverse_blocks(start, arr[i], head, head);
-        start += arr[i];
-    }
+    int arr[] = {3, 3, 3};
+
+    head = reverser_blocks(head, 3, arr);
 
     print(head);
 
