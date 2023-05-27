@@ -49,65 +49,115 @@ void print(Node *&head)
     cout << endl;
 }
 
-Node *reverser_blocks(Node *head, int n, int arr[])
+// Node *reverser_blocks(Node *head, int n, int arr[])
+// {
+//     Node *curr = head;
+//     Node *prev = nullptr;
+//     Node *forward = nullptr;
+
+//     Node *initial_curr = curr;
+//     Node *initial_prev = prev;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (arr[i] > 1)
+//         {
+//             for (int j = 0; j < arr[i]; j++)
+//             {
+//                 if (curr == nullptr)
+//                 {
+//                     break;
+//                 }
+//                 forward = curr->next;
+//                 curr->next = prev;
+//                 prev = curr;
+//                 curr = forward;
+//             }
+
+//             if (initial_curr == head)
+//             {
+//                 initial_curr->next = curr;
+//                 head = prev;
+//             }
+//             else
+//             {
+//                 initial_prev->next = prev;
+//                 initial_curr->next = curr;
+//             }
+
+//             if (curr == nullptr)
+//             {
+//                 return head;
+//             }
+//         }
+//         else if (arr[i] == 1)
+//         {
+//             if (curr == nullptr)
+//             {
+//                 return head;
+//             }
+//             curr = curr->next;
+//         }
+//         else
+//         {
+//             continue;
+//         }
+//         initial_prev = initial_curr;
+//         initial_curr = curr;
+//         prev = nullptr;
+//     }
+
+//     return head;
+// }
+
+// recusive sol
+Node *reverser_blocks(Node *head, int n, int *arr)
 {
+    if (n == 0 || head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+
     Node *curr = head;
     Node *prev = nullptr;
     Node *forward = nullptr;
 
-    Node *initial_curr = curr;
-    Node *initial_prev = prev;
-
-    for (int i = 0; i < n; i++)
+    while (*arr == 0)
     {
-        if (arr[i] > 1)
-        {
-            for (int j = 0; j < arr[i]; j++)
-            {
-                if (curr == nullptr)
-                {
-                    break;
-                }
-                forward = curr->next;
-                curr->next = prev;
-                prev = curr;
-                curr = forward;
-            }
+        n--;
 
-            if (initial_curr == head)
-            {
-                initial_curr->next = curr;
-                head = prev;
-            }
-            else
-            {
-                initial_prev->next = prev;
-                initial_curr->next = curr;
-            }
+        if (n == 0)
+        {
+            return head;
+        }
 
-            if (curr == nullptr)
-            {
-                return head;
-            }
-        }
-        else if (arr[i] == 1)
-        {
-            if (curr == nullptr)
-            {
-                return head;
-            }
-            curr = curr->next;
-        }
-        else
-        {
-            continue;
-        }
-        initial_prev = initial_curr;
-        initial_curr = curr;
-        prev = nullptr;
+        arr++;
     }
 
-    return head;
+    if (*arr == 1)
+    {
+        head->next = reverser_blocks(head->next, --n, ++arr);
+        return head;
+    }
+
+    else if (*arr > 1)
+    {
+        for (int i = 0; i < *arr; i++)
+        {
+            if (curr == nullptr)
+            {
+                break;
+            }
+
+            forward = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = forward;
+        }
+    }
+
+    head->next = reverser_blocks(curr, --n, ++arr);
+    return prev;
 }
 
 int main()
@@ -122,9 +172,9 @@ int main()
 
     print(head);
 
-    int arr[] = {2, 1, 0, 6};
+    int arr[] = {0};
 
-    head = reverser_blocks(head, 4, arr);
+    head = reverser_blocks(head, 1, arr);
 
     print(head);
 
