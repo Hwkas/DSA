@@ -100,7 +100,7 @@ void print(Node *&head)
 // recusive function
 Node *reverse_in_k_groups(Node *head, int k)
 {
-    if (head == nullptr)
+    if (head == nullptr || head->next == nullptr)
     {
         return head;
     }
@@ -132,10 +132,7 @@ Node *reverse_in_k_groups(Node *head, int k)
         curr = forward;
     }
 
-    if (forward != nullptr)
-    {
-        head->next = reverse_in_k_groups(curr, k);
-    }
+    head->next = reverse_in_k_groups(curr, k);
 
     return prev;
 }
