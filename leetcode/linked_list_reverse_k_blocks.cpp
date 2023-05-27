@@ -113,6 +113,12 @@ void print(Node *&head)
 // recusive sol
 Node *reverser_blocks(Node *head, int n, int *arr)
 {
+    while (*arr == 0 && n > 0)
+    {
+        n--;
+        arr++;
+    }
+
     if (n == 0 || head == nullptr || head->next == nullptr)
     {
         return head;
@@ -122,38 +128,23 @@ Node *reverser_blocks(Node *head, int n, int *arr)
     Node *prev = nullptr;
     Node *forward = nullptr;
 
-    while (*arr == 0)
-    {
-        n--;
-
-        if (n == 0)
-        {
-            return head;
-        }
-
-        arr++;
-    }
-
     if (*arr == 1)
     {
         head->next = reverser_blocks(head->next, --n, ++arr);
         return head;
     }
 
-    else if (*arr > 1)
+    for (int i = 0; i < *arr; i++)
     {
-        for (int i = 0; i < *arr; i++)
+        if (curr == nullptr)
         {
-            if (curr == nullptr)
-            {
-                break;
-            }
-
-            forward = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = forward;
+            break;
         }
+
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
     }
 
     head->next = reverser_blocks(curr, --n, ++arr);
