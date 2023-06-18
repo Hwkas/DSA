@@ -49,24 +49,45 @@ void print(Node *&head)
     cout << endl;
 }
 
+// void detect_n_remove_duplicates(Node *&head)
+// {
+//     Node *curr = head;
+//     Node *forward = head;
+//     Node *node_to_delete = nullptr;
+
+//     while (curr != nullptr)
+//     {
+//         forward = curr->next;
+//         while (forward != nullptr && curr->data == forward->data)
+//         {
+//             node_to_delete = forward;
+//             forward = forward->next;
+//             node_to_delete->next = nullptr;
+//             delete node_to_delete;
+//         }
+//         curr->next = forward;
+//         curr = curr->next;
+//     }
+// }
+
 void detect_n_remove_duplicates(Node *&head)
 {
     Node *curr = head;
-    Node *forward = head;
     Node *node_to_delete = nullptr;
 
-    while (curr != nullptr)
+    while (curr->next != nullptr)
     {
-        forward = curr->next;
-        while (forward != nullptr && curr->data == forward->data)
+        if (curr->data == curr->next->data)
         {
-            node_to_delete = forward;
-            forward = forward->next;
-            node_to_delete->next = nullptr;
+            node_to_delete = curr->next;
+            curr->next = curr->next->next;
+            node_to_delete->next = nullptr; // because of destructor
             delete node_to_delete;
         }
-        curr->next = forward;
-        curr = curr->next;
+        else
+        {
+            curr = curr->next;
+        }
     }
 }
 
