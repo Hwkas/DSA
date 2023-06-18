@@ -11,15 +11,15 @@ public:
     Node(int data)
     {
         this->data = data;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
     ~Node()
     {
-        if (this->next != NULL)
+        if (this->next != nullptr)
         {
             delete next;
-            this->next = NULL;
+            this->next = nullptr;
         }
     }
 };
@@ -28,7 +28,7 @@ void insert_node(Node *&tail, int element, int data)
 {
     Node *node_to_insert = new Node(data);
 
-    if (tail == NULL)
+    if (tail == nullptr)
     {
         tail = node_to_insert;
         node_to_insert->next = node_to_insert;
@@ -53,7 +53,7 @@ void insert_node(Node *&tail, int element, int data)
 
 void print(Node *&tail)
 {
-    if (tail == NULL)
+    if (tail == nullptr)
     {
         throw out_of_range("linked list is empty");
     }
@@ -70,7 +70,7 @@ void print(Node *&tail)
 
 void delete_node(Node *&tail, int element)
 {
-    if (tail == NULL)
+    if (tail == nullptr)
     {
         throw runtime_error("the linked list empty, no node to delete");
     }
@@ -91,14 +91,14 @@ void delete_node(Node *&tail, int element)
 
     if (temp == node_to_delete)
     {
-        tail = NULL;
+        tail = nullptr;
     }
     else if (node_to_delete == tail)
     {
         tail = temp;
     }
 
-    node_to_delete->next = NULL;
+    node_to_delete->next = nullptr;
     delete node_to_delete;
 }
 
@@ -108,7 +108,7 @@ int main()
     // node1->next = node1;
 
     // Node *tail = node1;
-    Node *tail = NULL;
+    Node *tail = nullptr;
 
     insert_node(tail, 10, 20);
     insert_node(tail, 20, 40);

@@ -10,15 +10,15 @@ public:
     Node(int data)
     {
         this->data = data;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
     ~Node()
     {
-        if (this->next != NULL)
+        if (this->next != nullptr)
         {
             delete next;
-            this->next = NULL;
+            this->next = nullptr;
         }
     }
 };
@@ -27,7 +27,7 @@ void insert_at_head(Node *&head, int data)
 {
     Node *node_to_insert = new Node(data);
 
-    if (head == NULL)
+    if (head == nullptr)
     {
         head = node_to_insert;
         return;
@@ -41,7 +41,7 @@ void print(Node *&head)
 {
     Node *temp = head;
 
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -153,7 +153,7 @@ Node *reverser_blocks(Node *head, int n, int *arr)
 
 int main()
 {
-    Node *head = NULL;
+    Node *head = nullptr;
 
     insert_at_head(head, 10);
     insert_at_head(head, 20);

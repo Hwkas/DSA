@@ -10,15 +10,15 @@ public:
     Node(int data)
     {
         this->data = data;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
     ~Node()
     {
-        if (this->next != NULL)
+        if (this->next != nullptr)
         {
             delete next;
-            this->next = NULL;
+            this->next = nullptr;
         }
     }
 };
@@ -27,7 +27,7 @@ void insert_at_head(Node *&head, int data)
 {
     Node *node_to_insert = new Node(data);
 
-    if (head == NULL)
+    if (head == nullptr)
     {
         head = node_to_insert;
         return;
@@ -41,7 +41,7 @@ void print(Node *&head)
 {
     Node *temp = head;
 
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -54,7 +54,7 @@ void print(Node *&head)
 //     int length = 0;
 //     Node *temp = head;
 
-//     while (temp != NULL)
+//     while (temp != nullptr)
 //     {
 //         temp = temp->next;
 //         length++;
@@ -72,12 +72,12 @@ void print(Node *&head)
 // Optimized solution
 Node *get_mid(Node *head)
 {
-    if (head == NULL || head->next == NULL)
+    if (head == nullptr || head->next == nullptr)
     {
         return head;
     }
 
-    if (head->next->next == NULL)
+    if (head->next->next == nullptr)
     {
         return head->next;
     }
@@ -85,10 +85,10 @@ Node *get_mid(Node *head)
     Node *slow = head;
     Node *fast = head->next;
 
-    while (fast != NULL)
+    while (fast != nullptr)
     {
         fast = fast->next;
-        if (fast != NULL)
+        if (fast != nullptr)
         {
             fast = fast->next;
         }
@@ -99,7 +99,7 @@ Node *get_mid(Node *head)
 
 int main()
 {
-    Node *head = NULL;
+    Node *head = nullptr;
 
     insert_at_head(head, 10);
     insert_at_head(head, 20);

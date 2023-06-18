@@ -11,15 +11,15 @@ public:
     Node(int data)
     {
         this->data = data;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
     ~Node()
     {
-        if (this->next != NULL)
+        if (this->next != nullptr)
         {
             delete next;
-            this->next = NULL;
+            this->next = nullptr;
         }
     }
 };
@@ -28,7 +28,7 @@ void insert_at_head(Node *&head, int data)
 {
     Node *node_to_insert = new Node(data);
 
-    if (head == NULL)
+    if (head == nullptr)
     {
         head = node_to_insert;
         return;
@@ -42,7 +42,7 @@ void print(Node *&head)
 {
     Node *temp = head;
 
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -53,9 +53,9 @@ void print(Node *&head)
 // line time but big O space complexicity
 // void reverse_node(Node *&head)
 // {
-//     Node *temp = NULL;
+//     Node *temp = nullptr;
 
-//     while (head != NULL)
+//     while (head != nullptr)
 //     {
 //         insert_at_head(temp, head->data);
 //         head = head->next;
@@ -67,15 +67,15 @@ void print(Node *&head)
 // Optimal Solution - Linear Time & Constant Space
 // void reverse_node(Node *&head)
 // {
-//     if (head == NULL || head->next == NULL)
+//     if (head == nullptr || head->next == nullptr)
 //     {
 //         return;
 //     }
 //     Node *curr = head;
-//     Node *forward = NULL;
-//     Node *prev = NULL;
+//     Node *forward = nullptr;
+//     Node *prev = nullptr;
 
-//     while (curr != NULL)
+//     while (curr != nullptr)
 //     {
 //         forward = curr->next;
 //         curr->next = prev;
@@ -89,7 +89,7 @@ void print(Node *&head)
 // recusrive function for reversing a linked list
 // void reverse_node(Node *&head)
 // {
-//     if (head == NULL || head->next == NULL)
+//     if (head == nullptr || head->next == nullptr)
 //     {
 //         return;
 //     }
@@ -97,15 +97,15 @@ void print(Node *&head)
 //     Node *rest = head->next;
 //     reverse_node(rest);
 //     head->next->next = head;
-//     head->next = NULL;
+//     head->next = nullptr;
 
 //     head = rest;
 // }
 
 // Optimised - recusrive function for reversing a linked list
-void reverse_node(Node *&head, Node *curr, Node *prev = NULL)
+void reverse_node(Node *&head, Node *curr, Node *prev = nullptr)
 {
-    if (curr == NULL)
+    if (curr == nullptr)
     {
         head = prev;
         return;
@@ -117,7 +117,7 @@ void reverse_node(Node *&head, Node *curr, Node *prev = NULL)
 
 int main()
 {
-    Node *head = NULL;
+    Node *head = nullptr;
 
     insert_at_head(head, 10);
     insert_at_head(head, 20);
