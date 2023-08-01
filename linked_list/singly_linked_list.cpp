@@ -11,15 +11,15 @@ public:
     Node(int data)
     {
         this->data = data;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
     ~Node()
     {
-        if (this->next != NULL)
+        if (this->next != nullptr)
         {
             delete next;
-            this->next = NULL;
+            this->next = nullptr;
         }
     }
 };
@@ -27,7 +27,7 @@ public:
 void insert_at_head(Node *&head, Node *&tail, int data)
 {
     Node *temp = new Node(data);
-    if (head == NULL)
+    if (head == nullptr)
     {
         head = temp;
         tail = temp;
@@ -40,7 +40,7 @@ void insert_at_head(Node *&head, Node *&tail, int data)
 void insert_at_tail(Node *&head, Node *&tail, int data)
 {
     Node *temp = new Node(data);
-    if (tail == NULL)
+    if (tail == nullptr)
     {
         head = temp;
         tail = temp;
@@ -64,13 +64,13 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
     {
         temp = temp->next;
 
-        if (temp == NULL)
+        if (temp == nullptr)
         {
             throw out_of_range("Index out of range");
         }
     }
 
-    if (temp->next == NULL)
+    if (temp->next == nullptr)
     {
         insert_at_tail(head, tail, data);
         return;
@@ -87,7 +87,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     if (index == 0)
     {
         head = head->next;
-        temp->next = NULL;
+        temp->next = nullptr;
         delete temp;
         return;
     }
@@ -95,7 +95,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     for (int i = 0; i < index - 1; i++)
     {
         temp = temp->next;
-        if (temp->next == NULL)
+        if (temp->next == nullptr)
         {
             throw out_of_range("Index out of range");
         }
@@ -104,11 +104,11 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     Node *node_to_delete = temp->next;
     temp->next = node_to_delete->next;
 
-    if (temp->next == NULL)
+    if (temp->next == nullptr)
     {
         tail = temp;
     }
-    node_to_delete->next = NULL;
+    node_to_delete->next = nullptr;
     delete node_to_delete;
 }
 
@@ -116,7 +116,7 @@ void print(Node *&head)
 {
     Node *temp = head;
 
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -132,8 +132,8 @@ int main()
     // Node *head = node1;
     // Node *tail = node1;
 
-    Node *head = NULL;
-    Node *tail = NULL;
+    Node *head = nullptr;
+    Node *tail = nullptr;
 
     insert_at_tail(head, tail, 345);
     // print(head);

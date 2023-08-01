@@ -11,17 +11,17 @@ public:
 
     Node(int data)
     {
-        this->previous = NULL;
+        this->previous = nullptr;
         this->data = data;
-        this->next = NULL;
+        this->next = nullptr;
     }
 
     ~Node()
     {
-        if (this->next != NULL)
+        if (this->next != nullptr)
         {
             delete next;
-            this->next = NULL;
+            this->next = nullptr;
         }
     }
 };
@@ -30,7 +30,7 @@ void print_from_head(Node *&head)
 {
     cout << "Printing from head:  ";
     Node *temp = head;
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -42,7 +42,7 @@ void print_from_tail(Node *&tail)
 {
     cout << "Printing from tail:  ";
     Node *temp = tail;
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->previous;
@@ -54,7 +54,7 @@ int get_lenght(Node *&head)
 {
     Node *temp = head;
     int length = 0;
-    while (temp != NULL)
+    while (temp != nullptr)
     {
         length++;
         temp = temp->next;
@@ -65,7 +65,7 @@ int get_lenght(Node *&head)
 void insert_at_head(Node *&head, Node *&tail, int data)
 {
     Node *node_to_insert = new Node(data);
-    if (head == NULL)
+    if (head == nullptr)
     {
         head = node_to_insert;
         tail = node_to_insert;
@@ -79,7 +79,7 @@ void insert_at_head(Node *&head, Node *&tail, int data)
 void insert_at_tail(Node *&head, Node *&tail, int data)
 {
     Node *node_to_insert = new Node(data);
-    if (tail == NULL)
+    if (tail == nullptr)
     {
         head = node_to_insert;
         tail = node_to_insert;
@@ -104,13 +104,13 @@ void insert_at_position(Node *&head, Node *&tail, int data, int index)
     for (int i = 0; i < index - 1; i++)
     {
         temp = temp->next;
-        if (temp == NULL)
+        if (temp == nullptr)
         {
             throw out_of_range("Index out of range");
         }
     }
 
-    if (temp->next == NULL)
+    if (temp->next == nullptr)
     {
         insert_at_tail(head, tail, data);
         return;
@@ -131,8 +131,8 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     if (index == 0)
     {
         head = temp->next;
-        head->previous = NULL;
-        temp->next = NULL;
+        head->previous = nullptr;
+        temp->next = nullptr;
         delete temp;
         return;
     }
@@ -140,7 +140,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     for (int i = 0; i < index - 1; i++)
     {
         temp = temp->next;
-        if (temp->next == NULL)
+        if (temp->next == nullptr)
         {
             throw out_of_range("Index out of range");
         }
@@ -148,7 +148,7 @@ void delete_at_position(Node *&head, Node *&tail, int index)
 
     Node *node_to_delete = temp->next;
     temp->next = node_to_delete->next;
-    if (temp->next == NULL)
+    if (temp->next == nullptr)
     {
         tail = temp;
     }
@@ -156,8 +156,8 @@ void delete_at_position(Node *&head, Node *&tail, int index)
     {
         node_to_delete->next->previous = temp;
     }
-    node_to_delete->next = NULL;
-    node_to_delete->previous = NULL;
+    node_to_delete->next = nullptr;
+    node_to_delete->previous = nullptr;
     delete node_to_delete;
 }
 
@@ -169,8 +169,8 @@ int main()
     // Node *head = node1;
     // Node *tail = node1;
 
-    Node *head = NULL;
-    Node *tail = NULL;
+    Node *head = nullptr;
+    Node *tail = nullptr;
 
     insert_at_head(head, tail, 20);
     insert_at_head(head, tail, 30);
