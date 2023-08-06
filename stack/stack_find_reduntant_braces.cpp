@@ -29,17 +29,19 @@ bool findRedundantBrackets(string &s)
         {
             st.push('+');
         }
-        else if (s[i] == ')' && !st.empty())
+        else if (s[i] == ')')
         {
-            if (st.top() == '+')
+            if (st.top() != '+')
             {
-                st.pop();
-                st.pop();
+                return true;
             }
+
+            st.pop();
+            st.pop();
         }
     }
 
-    return st.empty() ? false : true;
+    return false;
 }
 
 int main()
