@@ -38,7 +38,7 @@ public:
         {
             throw overflow_error("Queue overflow.");
         }
-        if (empty())  // if enter first element
+        if (empty()) // if enter first element
         {
             start++;
         }
