@@ -29,7 +29,8 @@ public:
 
     bool full()
     {
-        return ((start == 0 && end == size - 1) || (end == (start - 1) % (size - 1))) ? true : false;
+        // this needs modification
+        return ((start == 0 && end == size - 1) || (start != 0 && end == (start - 1) % (size - 1))) ? true : false;
     }
 
     void push(int data)
