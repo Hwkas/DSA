@@ -1,0 +1,88 @@
+Problem Level & Count to each Topic
+Easy - 20
+Medium - 20
+Hard - 10
+
+
+### 1. **Bit Manipulation**
+   - Basics of Bits and Binary
+   - Bitwise Operations (AND, OR, NOT, XOR, Shift)
+   - Setting, Clearing, and Toggling Bits
+   - Counting Set Bits
+   - Checking Power of Two
+   - Finding Unique Elements (using XOR)
+   - Applications in Algorithms (e.g., Subset generation)
+
+### 2. **Basic Data Structures**
+   - Arrays
+   - Strings
+   - Linked Lists (Singly and Doubly)
+   - Stacks
+   - Queues
+   - Hash Tables
+
+### 3. **Recursion and Backtracking**
+   - Recursion Fundamentals
+   - Backtracking Concepts
+   - Classic Problems (N-Queens, Sudoku Solver, Permutations)
+
+### 4. **Sorting Algorithms**
+   - Bubble Sort
+   - Selection Sort
+   - Insertion Sort
+   - Merge Sort
+   - Quick Sort
+   - Heap Sort
+   - Counting Sort
+   - Radix Sort
+
+### 5. **Searching Algorithms**
+   - Linear Search
+   - Binary Search
+   - Search in Rotated Sorted Array
+   - Ternary Search
+
+### 6. **Advanced Data Structures**
+   - Trees
+     - Binary Trees
+     - Binary Search Trees (BST)
+     - AVL Trees
+     - Red-Black Trees
+     - Segment Trees
+     - Fenwick Trees (Binary Indexed Trees)
+   - Graphs
+     - Representations (Adjacency List, Matrix)
+     - Traversal Algorithms (DFS, BFS)
+     - Shortest Path Algorithms (Dijkstra, Bellman-Ford, Floyd-Warshall)
+     - Minimum Spanning Tree (Kruskal, Prim)
+   - Heaps
+     - Min-Heap and Max-Heap
+     - Applications in Priority Queues
+
+### 7. **Dynamic Programming**
+   - Understanding Dynamic Programming
+   - Memoization vs Tabulation
+   - Classic Problems (Fibonacci, Knapsack, Longest Common Subsequence, Coin Change)
+
+### 8. **Greedy Algorithms**
+   - Greedy Methodology
+   - Classic Problems (Activity Selection, Huffman Coding, Fractional Knapsack)
+
+### 9. **Graph Algorithms**
+   - Advanced Graph Algorithms (Topological Sorting, Strongly Connected Components)
+   - Network Flow (Ford-Fulkerson)
+
+### 10. **Complexity Analysis**
+   - Time Complexity
+   - Space Complexity
+   - Big O, Big Θ, and Big Ω Notation
+
+### 11. **Miscellaneous Topics**
+   - Divide and Conquer
+   - Randomized Algorithms
+   - Bit Manipulation Tricks in Algorithms
+
+### 12. **Advanced Topics**
+   - Trie (Prefix Tree)
+   - Suffix Trees and Arrays
+   - Disjoint Set Union (Union-Find)

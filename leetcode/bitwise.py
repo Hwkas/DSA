@@ -73,7 +73,7 @@ num = int(input("Enter a number:  "))
 
 
 # Q231. Power of Two
-# Given an inteder n . return true it its a power of two. Otherwise. return false.
+# Given an integer n . return true it its a power of two. Otherwise. return false.
 # An Integer n is a power of two, if there exists an integer X such that n == 2^x.
 
 
